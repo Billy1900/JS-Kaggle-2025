@@ -3,6 +3,8 @@ Jane Street Real-Time Market Data Forecasting 2025: https://www.kaggle.com/compe
 
 dataset could also be downloaded through this site.
 
+We tentatively achieved Top 1% on the Leaderboard, looking forward the result on June!
+
 ## List of resources
 1. Data Visualization: this notebook ([data-visualization notebook](data-visualization.ipynb)) will help you understand the meaning of each data column
 2. Exploratory Data Analysis: this notebook ([EDA notebook](EDA.ipynb)) gives us several insights of how to use the data.
