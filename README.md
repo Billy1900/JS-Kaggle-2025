@@ -1,11 +1,9 @@
 # JS-Kaggle-2025
-Jane Street Real-Time Market Data Forecasting 2025: https://www.kaggle.com/competitions/jane-street-real-time-market-data-forecasting
+Jane Street Real-Time Market Data Forecasting 2025: https://www.kaggle.com/competitions/jane-street-real-time-market-data-forecasting (dataset could also be downloaded through this site)
 
-dataset could also be downloaded through this site.
+We tentatively achieved Top 1% on the Leaderboard, looking forward to the result on June!
 
-We tentatively achieved Top 1% on the Leaderboard, looking forward the result on June!
-
-## List of resources
+## Collection of Insights
 1. Data Visualization: this notebook ([data-visualization notebook](data-visualization.ipynb)) will help you understand the meaning of each data column
 2. Exploratory Data Analysis: this notebook ([EDA notebook](EDA.ipynb)) gives us several insights of how to use the data.
     - lag data is essential for reponder_6 prediction
@@ -15,3 +13,4 @@ We tentatively achieved Top 1% on the Leaderboard, looking forward the result on
     - ensemble model could improve prediction accuracy
     - due to that there are a lot of new data coming in, online learning is inevitable
 3. Ensemble model: this notebook ([ensemble model notebook](lgb-xgb-and-catboost.ipynb)) uses lgb, xgb, and catboost, and train on lag data. Note that we do not use online learning, but the R2 (0.0064) is acceptable.
+4. We show major stuff of our approach, like how we use the data, model architecture, model training, objective function used (refer to [model train file](all_train_weight.py)), but make some parameters anonymized.

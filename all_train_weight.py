@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim
+from pytorch_lightning import LightningModule
 
 import numpy as np
 from tqdm import tqdm
@@ -8,27 +9,17 @@ import polars as pl
 import argparse
 import pickle
 import os
+
+
 from tanm_reference import Model, make_parameter_groups
-
-
-from pytorch_lightning import LightningModule
 
 
 # Device configuration
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-# Define R2 loss class
-# class R2Loss(nn.Module):
-#     def __init__(self):
-#         super(R2Loss, self).__init__()
-
-#     def forward(self, y_pred, y_true):
-#         mse_loss = torch.sum((y_pred - y_true) ** 2)
-#         var_y = torch.sum(y_true ** 2)
-#         loss = mse_loss / (var_y + 1e-38)
-#         return loss
-
-
+###############################################
+#######     model training       ##############
+###############################################
 class R2Loss(nn.Module):
     def __init__(self):
         super(R2Loss, self).__init__()
@@ -297,7 +288,9 @@ def validate(model, loss_fn, valid_tensor_all, small_batch_size, k):
     return avg_valid_loss, valid_r2
 
 
-
+###############################################
+#######    data load & engineering     ########
+###############################################
 def prepare_data(saved=False):
     base_path = "/mnt/sda/k/"
 
@@ -407,6 +400,7 @@ def prepare_data(saved=False):
 
     return train_original,valid_original
 
+
 def get_batch_tensors(saved=False,all_data=False):
     base_path = "/mnt/sda/k/"
 
@@ -466,8 +460,6 @@ def get_batch_tensors(saved=False,all_data=False):
     return train_batch_tensors, train_tensor_all, valid_tensor_all
 
 
-    
-
 class Custom_Args():
     def __init__(self):
         self.usegpu = True
@@ -488,7 +480,6 @@ class Custom_Args():
         self.patience = 7
         self.max_epochs = 10
         self.N_fold = 5
-
 
 
 
