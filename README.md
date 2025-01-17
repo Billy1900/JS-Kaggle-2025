@@ -13,7 +13,7 @@ We tentatively achieved Top 1% on the Leaderboard, looking forward to the result
     - ensemble model could improve prediction accuracy
     - due to that there are a lot of new data coming in, online learning is inevitable
     - While some competitors advised against using the 'weight' field during training to avoid potential bias, our empirical results showed that incorporating weights as input features and implementing a weighted R2 loss function improved performance. 
-3. Ensemble model: this notebook ([ensemble model notebook](lgb-xgb-and-catboost.ipynb)) uses lgb, xgb, and catboost, and train on lag data. Note that we do not use online learning, but the R2 (0.0064) is acceptable.
+3. Ensemble model: As an initial experiment, we tested an ensemble of tree-based models (LGB, XGB, and CatBoost) ([ensemble model notebook](lgb-xgb-and-catboost.ipynb)), which is trained on lag data. While this approach didn't incorporate online learning, it achieved a reasonable R2 of 0.0064.
 4. We show major stuff of our approach, like how we use the data, model architecture, model training, objective function used (refer to [model train file](all_train_weight.py)), but make some parameters anonymized.
     - Online learning becomes crucial when prediction data arrives in daily updates and model updates are permitted. Based on our experiments, this approach improved the R2 score by approximately 0.002 on the hidden set. 
     - We implemented a three-stage training pipeline, which proved to be an effective practice for handling financial time series data:
